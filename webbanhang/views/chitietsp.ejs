@@ -1,0 +1,148 @@
+<% include header %>
+
+  <% data.forEach(function(spchitiet){ %>
+    <% if(spchitiet._id == idsanpham){ %>
+    <!-- Container -->
+    <div class="app__container2">
+      <div class="grid wide">
+        <div class="app__content row no-gutters">
+          <div class="col l-5 m-12 c-12">
+            <div class="contnent__sp">
+              <div class="group-images">
+                <div class="images">
+                  <% spchitiet.images.forEach(function(imagesp){ %>
+                  <a>
+                    <div src="<%= imagesp.linkImage %>">
+                      <img src="<%= imagesp.linkImage %>" class="image-small" alt="balo cao cấp">
+                    </div>
+                  </a>
+                  <% }); %>
+                  
+                </div>
+                <div class="big-image">
+                  <img src="<%= spchitiet.bigImage %>" alt="balo cap cấp" class="big-image__image">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col l-7 m-12 c-12" style="border-radius: 0 0 6px 0;">
+            <div class="information-product">
+              <div class="header-product">
+                <p class="header-product-title"><%= spchitiet.tenSanPham %></p>
+                <div class="product-rating">
+                  <div class="home-product-item__rating header-product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <p class="number__rater">(275 người đánh giá)</p>
+                </div>
+    
+                <div class="brand">
+                  <p class="brand-header">Thương hiệu:</p>
+                  <p class="brand-main"> <%= spchitiet.brand %></p>
+                </div>
+              </div>
+            </div>
+            <div class="body-product">
+              <div class="price-product">
+                <div class="price-product-old"><%= spchitiet.priceOld %>đ</div>
+                <div class="price-product-current"><%= spchitiet.priceCurrent %>đ</div>
+              </div>
+              <div class="product-textcontent">
+                <div class="row no-gutters">
+                  <div class="product-textcontent-col col l-3 m-3 c-0">
+                    <label class="textcontent-label">Thông tin</label>
+                  </div>
+                  <div class="product-textcontent-col col l-9 m-9 c-12">
+                    <p class="textcontent-main"><%= spchitiet.information %></p>
+                    <a href="#section2" class="textcontent-detail">Xem chi tiết</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product-pay">
+              <button type="button" class="product-add-cart" aria-disabled="false">
+                <i class="product-add-cart__icon fas fa-cart-plus"></i>
+                <span class="product-add-cart-text">Thêm vào giỏ hàng</span>
+              </button>
+              <button type="submit" class="product-buy-now" aria-disabled="false"><a class="product-buy-now-click" href="/thanhtoan">Mua ngay</a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid wide">
+        <div class="content-table row no-gutters">
+          <div class="col l-12 m-12 c-12" id="section2">
+            <h4 class="information-text">Thông tin chi tiết</h4>
+            <div class="table-information">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Thương hiệu</td>
+                    <td class="setbackground"><%= spchitiet.brand %></td>
+                  </tr>
+                  <tr>
+                    <td>Xuất xứ thương hiệu</td>
+                    <td class="setbackground"><%= spchitiet.origin %></td>
+                  </tr>
+                  <% spchitiet.detail.forEach(function(detailsp){ %>
+                  <tr>
+                    <td><%= detailsp.cot1 %></td>
+                    <td class="setbackground"><%= detailsp.cot2 %></td>
+                  </tr>
+                  <% }); %>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid wide">
+        <div class="content-table row no-gutters">
+          <div class="col l-12 m-12 c-12">
+            <h4 class="information-text">Mô tả sản phẩm</h4>
+            <div class="description-product">
+              <ul class="description-list">
+                <% spchitiet.description.forEach(function(textdes){ %>
+                <li class="description-text">
+                  <%= textdes.text %>
+                </li>
+                
+                <% }); %>
+              </ul>
+              <p><%= spchitiet.descriptionEnd %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% include listseen %>
+    </div>
+    
+    <% include login %>
+
+    <div class="app-animation-cart">
+      <div class="animation-cart">
+        <i class="animation-cart-icon fas fa-check-circle"></i>
+        <p class="animation-cart-text">Sản phẩm đã được thêm vào giỏ hàng</p>
+      </div>
+    </div>
+       <% } %>
+    <% }); %>
+    <% include footer %>
+
+<script src="/javascripts/main.js"></script>
+<script src="/javascripts/product.js"></script>
+<script src="/javascripts/validation.js"></script>
+<script>
+  Validator('#form-1');
+  Validator('#form-2');
+</script>
+
+
+  
+</body>
+</html>

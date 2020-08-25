@@ -1,0 +1,217 @@
+<% include header %>
+
+    <!-- Container -->
+    <div class="app__container">
+      <!-- <ul class="header__sort-bar">
+        <li class="header__sort-item">
+          <a href="#" class="header__sort-link">Phổ biến</a>
+        </li>
+        <li class="header__sort-item">
+          <a href="#" class="header__sort-link header__sort-link-active">Mới nhất</a>
+        </li>
+        <li class="header__sort-item">
+          <a href="#" class="header__sort-link">Bán chạy</a>
+        </li>
+        <li class="header__sort-item">
+          <a href="#" class="header__sort-link">Giá</a>
+        </li>
+      </ul> -->
+      <div class="grid wide">
+        <div class="app__content row sm-gutter">
+          <div class="col l-2 m-0 c-0">
+            <nav class="category">
+              <h3 class="categorya__heading">
+                <i class="categorya__heading-icon fas fa-list-ul"></i>
+                Danh mục</h3>
+              <ul class="category--list">
+                <li class="category-item">
+                  <a href="#all" class="category-item__link">Tất cả</a>
+                </li>
+                <li class="category-item">
+                  <a href="#snacks" class="category-item__link">Đồ ăn vặt</a>
+                </li>
+                <li class="category-item">
+                  <a href="#watergas" class="category-item__link">Nước uống có gas</a>
+                </li>
+                <li class="category-item">
+                  <a href="#school" class="category-item__link">Đồ dùng học tập</a>
+                </li>
+              </ul>  
+            </nav>
+          </div>
+
+          <div class="col l-10 m-12 c-12">
+            <div class="home-filter hide-on-mobile-tablet">
+              <div class="home-filter__label">Sắp xếp theo</div>
+              <button class="home-filter__btn btn">Phổ biến</button>
+              <button class="home-filter__btn btn btn--primary">Mới nhất</button>
+              <button class="home-filter__btn btn banchay">Bán chạy</button>
+              <div class="select-input btn">
+                <span class="select-input__label">Giá</span>
+                <i class="fas fa-chevron-down"></i>
+                <ul class="select-input__option">
+                  <li class="select-input__option-item select-input__option-item1">Giá: Thấp đến Cao</li>
+                  <li class="select-input__option-item select-input__option-item2">Giá: Cao đến Thấp</li>
+                </ul>
+              </div>
+
+              <div class="home-filter__page">
+                <span class="home-filter__page-num">
+                  <span class="home-filter__page-current">1</span>/14
+                </span>
+
+                <div class="home-filter__page-control">
+                  <a href="#" class="home-filter__page-btn home-filter__page-btn--disabled">
+                    <i class="home-filter__page-icon fas fa-chevron-left"></i>
+                  </a>
+                  <a href="#" class="home-filter__page-btn">
+                    <i class="home-filter__page-icon fas fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- <nav class="mobile-category">
+              <ul class="mobile-category__list">
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Thực Phẩm Chức Năng</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm mặt</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm da bán chạy nhất</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm mắt</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm mặt</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm da</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm mắt</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm mặt</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm da</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm mắt</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm mặt</a>
+                </li>
+                <li class="mobile-category__item">
+                  <a href="#" class="mobile-category__link">Trang điểm da</a>
+                </li>
+              </ul>
+            </nav> -->
+
+            <div class="home-product">
+
+              <div class="row">
+                <% data.forEach(function(sanpham1){ %> 
+                <div class="col l-2-4 m-4 c-6 product__classify" id="<%= sanpham1.id %>">
+                  <a href="/chitietsp/<%= sanpham1.duongDanSeo %>.<%= sanpham1._id %>" class="home-product-item">
+                    <div class="home-product-item__img" style="background-image: url(<%= sanpham1.bigImage %>);"></div>
+                    <h4 class="home-product-item__name"><%= sanpham1.tenSanPham %></h4>
+                    <div class="home-product-item__price">
+                      <span class="home-product-item__price-old"><%= sanpham1.priceOld %>đ</span>
+                      <span class="home-product-item__price-current"><%= sanpham1.priceCurrent %>đ</span>
+                    </div>
+                    <div class="home-product-item__action">
+                      <span class="home-product-item__like home-product-item__like--liked">
+                        <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                        <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                      </span>
+                      <div class="home-product-item__rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <span class="home-product-item__sold"><%= sanpham1.sell %> Đã bán</span>
+                    </div>
+
+                    <div class="home-product-item__origin">
+                      <span class="home-product-item__brand"><%= sanpham1.brand %></span>
+                      <span class="home-product-item__origin-title"><%= sanpham1.origin %></span>
+                    </div>
+
+                    <div class="home-product-item__favorite">
+                      <i class="fas fa-check"></i>
+                      <span>Yêu thích</span>
+                    </div>
+
+                    <div class="home-product-item__sale-off">
+                      <span class="home-product-item__sale-off-percent">34%</span>
+                      <span class="home-product-item__sale-off-label">GIẢM</span>
+                    </div>
+                  </a>
+                </div>
+                <% }); %>
+                
+                
+              </div>
+            </div>
+            <!-- pagination -->
+            <ul class="pagination home-product-pagination">
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">
+                  <i class="pagination-item-icon fas fa-angle-left"></i>
+                </a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link pagination-item-active">1</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">2</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">3</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">4</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">5</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">...</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">14</a>
+              </li>
+
+              <li class="pagination-item">
+                <a href="#" class="pagination-item-link">
+                  <i class="pagination-item-icon fas fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include login %>
+    <% include footer %>
+    
+
+<script src="/javascripts/main.js"></script>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/validation.js"></script>
+<script>
+  Validator('#form-1');
+  Validator('#form-2');
+</script>
+
+
+  
+</body>
+</html>

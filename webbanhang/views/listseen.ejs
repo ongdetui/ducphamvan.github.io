@@ -1,0 +1,32 @@
+
+<% if(danhsachseen){ %>
+
+<div class="grid wide" style="padding-bottom: 40px;">
+        <div class="content-table row no-gutters">
+          <div class="col l-12 m-12 c-12">
+            <h4 class="information-text">Sản phẩm bạn đã xem</h4>
+        <% danhsachseen.forEach(function(idseen){ %>
+            <% data.forEach(function(sanphamseen){ %>
+            <% if(sanphamseen._id == idseen){ %>
+            <% if(sanphamseen._id != idsanpham){ %>
+            <a href="/chitietsp/<%= sanphamseen.duongDanSeo %>.<%= sanphamseen._id %>" style="text-decoration: none;">
+            <div class="product-seen-list">
+              <div class="product-seen">
+                <img src="<%= sanphamseen.bigImage %>" alt="balo" class="product-seen-img">
+                <p class="product-seen-name"><%= sanphamseen.tenSanPham %></p>
+                <div class="product-seen-price">
+                  <p class="product-seen-old"><%= sanphamseen.priceOld %>đ</p>
+                  <p class="product-seen-current"><%= sanphamseen.priceCurrent %>đ</p>
+                </div>
+              </div>
+            </div>
+            </a>
+            <% } %>
+            <% } %>
+            <% }); %>
+         <% }); %>
+          </div>
+        </div>
+      </div>
+
+    <% } %>

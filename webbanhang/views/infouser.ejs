@@ -1,0 +1,63 @@
+<% include header %>
+
+<div class="app__container">
+    <div class="grid wide">
+        <div class="row no-gutters">
+            <div class="col l-2 m-12 c-12">
+                <div class="infor-user">
+                    <div class="user-avatar">
+                        <img src="https://cf.shopee.vn/file/d520e438f74460dee9590f940d86601b_tn" class="user-avatar__img">
+                        <% user.forEach(function(user){ %>
+                        <div class="user-avatar__text"><%= user.displayName %></div>
+                        <% }); %>
+                    </div>
+                    <div class="user-lists">
+                        <ul class="user-list">
+                            <li class="user-list-item">
+                                <i class="user-list-item-icon far fa-user"></i>
+                                <div class="user-list-item-text">Tài Khoản Của Tôi</div>
+                            </li>
+                            <li class="user-list-item">
+                                <i class="user-list-item-icon fas fa-shipping-fast" style="background-color: rgb(68, 181, 255);"></i>
+                                <div class="user-list-item-text">Đơn hàng của bạn</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-10 m-12 c-12">
+                <div class="user-order">
+                    <div class="user-order-title">Đơn hàng của tôi</div>
+                    <div class="user-order-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ngày mua</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hủy đơn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% payproduct.sanphammua.forEach(function(sanphampay, index){ %>
+                                <tr>
+                                    <td><%= sanphampay.time %></td>
+                                    <td><%= sanphampay.soluong %>x <%= sanphampay.tensanpham %></td>
+                                    <td><%= (sanphampay.gia * sanphampay.soluong).toLocaleString('vi') %> đ</td>
+                                    <td>Đang xử lý</td>
+                                    <td id="<%= index %>" class="cancelpay">Hủy ?</td>
+                                </tr>
+                                
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include footer %>
+<script src="/javascripts/main.js"></script>
+<script src="/javascripts/infouser.js"></script>

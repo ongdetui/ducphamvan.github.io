@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title  %></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css'>
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <link rel="stylesheet" href="/stylesheets/base.css">
+  <link rel="stylesheet" href="/stylesheets/grid.css">
+  <link rel="stylesheet" href="/stylesheets/responsive.css">
+  <link rel="stylesheet" href="/stylesheets/fortawesome/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      
+        <nav class="header__navbar hide-on-mobile-tablet">
+          <ul class="header__navbar-list">
+            <li class="header__navbar-item header__navbar-item--separate">
+              Tải ứng dụng
+            </li>
+            <li class="header__navbar-item header__navbar-item-title--no-pointer">Kết nối
+              <a href="https://www.facebook.com/profile.php?id=100032050028679" class="header-item-facebook">
+                <i class="header__navbar-icon fab fa-facebook-square"></i>
+              </a>
+              <a href="https://www.instagram.com/ducpham0711/" class="header-item-facebook">
+                <i class="header__navbar-icon fab fa-instagram"></i>
+              </a>
+  
+            </li>
+          </ul>
+          <ul class="header__navbar-list">
+            <li class="header__navbar-item">
+              <a href="" class="header__navbar-item-link"><i class="header__navbar-icon far fa-bell"></i> Thông báo</a>
+              <div class="header__notify">
+                <header class="header__notify-header">
+                  <h3>Thông báo của bạn</h3>
+                </header>
+                <ul class="header__notify-list">
+                  <li class="header__notify-item">
+                    <a href="" class="header__notify-link">
+                      <img src="https://img.abaha.vn/photos/resized/320x/83-1588766379-myphamohui-lgvina.png" alt="ảnh thôi" class="header__notify-img">
+                      <div class="header__notify-info">
+                        <span class="header__notify-name">Mỹ phẩm chính hãng point</span>
+                        <span class="header__notify-description">Sản phẩm tốt</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="header__notify-item">
+                    <a href="" class="header__notify-link">
+                      <img src="https://img.abaha.vn/photos/resized/320x/83-1588766379-myphamohui-lgvina.png" alt="ảnh thôi" class="header__notify-img">
+                      <div class="header__notify-info">
+                        <span class="header__notify-name">Mỹ phẩm chính hãng point</span>
+                        <span class="header__notify-description">Sản phẩm tốt</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="header__notify-item">
+                    <a href="" class="header__notify-link">
+                      <img src="https://img.abaha.vn/photos/resized/320x/83-1588766379-myphamohui-lgvina.png" alt="ảnh thôi" class="header__notify-img">
+                      <div class="header__notify-info">
+                        <span class="header__notify-name">Mỹ phẩm chính hãng point</span>
+                        <span class="header__notify-description">Sản phẩm tốt</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="header__notify-item">
+                    <a href="" class="header__notify-link">
+                      <img src="https://img.abaha.vn/photos/resized/320x/83-1588766379-myphamohui-lgvina.png" alt="ảnh thôi" class="header__notify-img">
+                      <div class="header__notify-info">
+                        <span class="header__notify-name">Mỹ phẩm chính hãng point</span>
+                        <span class="header__notify-description">Sản phẩm tốt</span>
+                      </div>
+                    </a>
+                  </li>
+                  
+                </ul>
+                <footer class="header__notify-footer">
+                  <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                </footer>         
+              </div>
+            </li>
+            <li class="header__navbar-item">
+              <a href="" class="header__navbar-item-link"><i class="header__navbar-icon fas fa-question-circle"></i> Trợ giúp</a>
+            </li>
+            <%if(!user){ %>
+            <li class="header__navbar-item header__navbar-item-strong header__navbar-item--separate"><a class="header__navbar-item-click" href="#form__container">Đăng ký</a></li>
+            <li class="header__navbar-item header__navbar-item-strong"><a class="header__navbar-item-click" href="#login">Đăng nhập</a></li>
+            <% }else{ %>
+            <% user.forEach(function(user){ %>
+            <li class="header__navbar-item header__navbar-item-strong">
+              <div class="shop-avatar">
+                <img src="https://cf.shopee.vn/file/d520e438f74460dee9590f940d86601b_tn" class="shop-avatar__img">
+                <a class="header__navbar-item-click shop-avatar__text"><%= user.displayName %></a>
+                <div class="menu-user" style="display: none;">
+                  <a href="/infouser" class="menu-user-pay-product">Đơn hàng của bạn</a>
+                  <a href="/logout" class="menu-user-logout">Đăng xuất</a>
+                </div>
+              </div>
+              
+            </li>
+            <% }); %>
+            <% } %>
+          </ul>
+        </nav>
+        <!-- header with search -->
+        <div class="header-with-search">
+            <!-- navigation bar -->
+          <label for="nav__mobile-input" class="nav__bars-btn">
+           <i class="nav__bars-icon fas fa-bars"></i>
+          </label>
+          <input type="checkbox" name="" class="nav__input" id="nav__mobile-input">
+          <!-- overlay -->
+          <label for="nav__mobile-input" class="nav__overlay"></label>
+          <div class="nav__mobile">
+            <div class="nav__mobile-close">
+              <span class="nav__mobile-close-menu">Menu Cửa Hàng</span>
+              <label for="nav__mobile-input"><i class="nav__mobile-close-icon fas fa-times"></i></label>
+            </div>
+            <ul class="nav__mobile-list">
+              <li class="nav__mobile-link">
+                <i class="nav__mobile-link-icon fas fa-home"></i>
+                <a href="/" class="nav__mobile-link-item">Trang chủ</a>
+              </li>
+              <li class="nav__mobile-link">
+                <i class="nav__mobile-link-icon fas fa-bell"></i>
+                <a href="#" class="nav__mobile-link-item">Thông báo</a>
+              </li>
+              <li class="nav__mobile-link">
+                <i class="nav__mobile-link-icon fas fa-question-circle"></i>
+                <a href="#" class="nav__mobile-link-item">Trợ giúp</a>
+              </li>
+              <%if(!user){ %>
+              <li class="nav__mobile-link">
+                <a href="#form__container" class="nav__mobile-link-i">
+                  <i class="nav__mobile-link-icon fas fa-check-circle"></i>
+                </a>
+                <a class="nav__mobile-link-item" href="#form__container">Đăng ký</a>   
+              </li>
+              <li class="nav__mobile-link">
+                <i class="nav__mobile-link-icon fas fa-sign-in-alt"></i>
+                <a href="#login" class="nav__mobile-link-item">Đăng nhập</a>
+              </li>
+              <% }else{ %>
+              <% user.forEach(function(user){ %>
+              <li class="nav__mobile-link">
+                <i class="nav__mobile-link-icon fas fa-user"></i>
+                <a href="/logout" class="nav__mobile-link-item"><%= user.displayName %></a>
+              </li>
+              <% }); %>
+              <% } %>
+            </ul>
+          </div>
+
+          <!-- search mobile -->
+          <label for="mobile-search-checkbox" class="header__mobile-search">
+            <i class="header__mobile-search-icon fas fa-search"></i>
+          </label>
+
+          <div class="header__logo hide-on-mobile-tablet">
+            <a href="/">
+              <img src="/images/logo.PNG" alt="ảnh logo" class="header__logo-img">
+            </a>
+          </div>
+          <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
+          <div class="header__search hide-on-mobile">
+            <div class="header__search-input-wrap">
+              <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
+              <div class="header__search-history">
+                <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                <ul class="header__search-history-list">
+                  <li class="header__search-history-item">
+                    <a class="header__search-history-click" href="#">Sữa chua không đường</a>
+                  </li>
+                  <li class="header__search-history-item">
+                    <a class="header__search-history-click" href="#">Dầu gội DOVE</a>
+                  </li>
+                  <li class="header__search-history-item">
+                    <a class="header__search-history-click" href="#">Kem đánh răng</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="header__search-btn">
+              <i class="header__search-btn-icon fas fa-search"></i>
+            </button>
+          </div>
+          <div class="header__cart">
+            <div class="header__cart-wrap">
+              <i class="header__cart-icon fas fa-shopping-cart"></i>
+              <span class="header__cart-notice">2</span>
+              <!-- không có hàng: header__cart-list--no-cart-->
+              <div class="header__cart-list">
+                
+
+                <!-- has cart -->
+
+                <% if(danhsach){ %>
+                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                <ul class="header__cart-list-item">
+              
+                <% danhsach.forEach(function(idseen){ %>
+                <% data.forEach(function(sanphamseen){ %>
+                <% if(sanphamseen._id == idseen){ %>
+                  <li class="header__cart-item">
+                    <img src="<%= sanphamseen.bigImage %>" alt="ảnh" class="header__cart-img">
+                    <div class="header__cart-item-info">
+                      <div class="header__cart-item-head">
+                        <h5 class="header__cart-item-name"><%= sanphamseen.tenSanPham %></h5>
+                        <div class="header__cart-item-price-wrap">
+                          <span class="header__cart-item-price"><%= sanphamseen.priceCurrent %>đ</span>
+                          <span class="header__cart-item-multiply">x</span>
+                          <span class="header__cart-item-quantity">1</span>
+                        </div>
+                      </div>
+
+                      <div class="header__cart-item-body">
+                        <span class="header__cart-item-description">
+                          Thương hiệu: <%= sanphamseen.brand %>
+                        </span>
+                        <span class="header__cart-item-remove"><a href="/thanhtoan/xoa.<%= sanphamseen._id %>">Xóa</a></span>
+                      </div>
+
+                    </div>
+                  </li>
+                <% } %>
+                <% }); %>
+                <% }); %>
+                <% } %>  
+                
+                <img src="/images/nocart.png" alt="" class="header__cart--no-cart-img">
+                <p class="header__cart-list-no-cart-msg">Chưa có sản phẩm !!</p>
+                
+                </ul>
+                <button class="opencart btn btn--primary">Xem giỏ hàng</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </header>

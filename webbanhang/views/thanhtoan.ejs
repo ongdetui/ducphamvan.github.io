@@ -1,0 +1,99 @@
+<% include header %>
+
+    <div class="app__container2">
+        <div class="grid wide" style="padding-bottom: 30px;">
+            <div class="row sm-gutter">
+                <div class="col l-9 m-9 c-12">
+                    <div class="cart">
+                        <h2 class="cart-product-title">Giỏ Hàng của bạn</h2>
+                        <div class="cart-list">
+                            <ul class="cart-product-list">
+                                
+                                <% if(danhsach){ %>
+                                <% danhsach.forEach(function(idseen){ %>
+                                <% data.forEach(function(sanphamseen){ %>
+                                <% if(sanphamseen._id == idseen){ %>
+                                
+                                <li class="cart-product">
+                                    <img src="<%= sanphamseen.bigImage %>" alt="" class="cart-product-img">
+                                    <div class="cart-product-content">
+                                        <div class="cart-product-description">
+                                            <a href="" class="cart-product-name"><%= sanphamseen.tenSanPham %></a>
+                                            <span class="cart-product-seller">Cung cấp bởi: <%= sanphamseen.brand %></span>
+                                            <p class="cart-product-action">
+                                                <span class="cart-product-remove"><a href="/thanhtoan/xoa.<%= sanphamseen._id %>">Xóa</a></span>
+                                                <span class="cart-product-buy-later">Dành để mua sau</span>
+                                            </p>
+                                        </div>
+                                        <div class="cart-product-detail">
+                                            <div class="cart-product-price">
+                                                <p class="cart-product-current"><%= sanphamseen.priceCurrent %>đ</p>
+                                                <p class="cart-product-old"><%= sanphamseen.priceOld %>đ</p>
+                                                <p class="cart-product-price-pay"></p>
+                                            </div>
+                                            <div class="cart-product-more-less">
+                                                <div class="cart-product-key">
+                                                    <span class="cart-product-less">-</span>
+                                                    <input type="tel" value="1" class="cart-product-input">
+                                                    <span class="cart-product-more">+</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <% } %>
+                                <% }); %>
+                                <% }); %>
+                                <% } %>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-3 m-3 c-12">
+                    <div class="cart-total-price">
+                        <div class="cart-total-price-inner">
+                            <div class="prices">
+                                <ul class="prices__items">
+                                    <li class="prices__item">
+                                        <span class="price-text">Tạm tính</span>
+                                        <span class="price-value">456.000đ</span>
+                                    </li>
+                                </ul>
+                                <p class="price-total">
+                                    <span class="price-text">Thành tiền</span>
+                                    <span class="price-value prices__value--final">
+                                        456.000đ
+                                        <i>(Đã bao gồm phí VAT)</i>
+                                    </span>
+                                </p>
+                            </div>
+                            <button type="button" class="cart__submit">Tiến hành đặt hàng</button>
+                            <div class="cart-coupon">
+                                <p class="coupon-title">Mã giảm giá / Quà tặng</p>
+                                <div class="coupon-inner">
+                                    <input type="text" class="coupon-input" placeholder="nhập ở đây...">
+                                    <button class="coupon-button">Đồng ý</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include login %>
+
+    <% include footer %>
+    <script src="/javascripts/main.js"></script>
+    <script src="/javascripts/price.js"></script>
+    <script src="/javascripts/validation.js"></script>
+    <script>
+      Validator('#form-1');
+      Validator('#form-2');
+    </script>
+    
+      
+    </body>
+    </html>

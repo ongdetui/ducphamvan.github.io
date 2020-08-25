@@ -1,0 +1,130 @@
+<!-- modal layout -->
+    <div class="modal" id="form__container">
+      <a href="#" class="modal__overlay">
+      </a>
+      <div class="modal__body">
+        <!-- đăng ký -->
+        <div class="auth-form">
+          <div class="auth-form__container">
+            <div class="auth-form__header">
+              <h3 class="auth-form__heading">Đăng ký</h3>
+              <a href="#login" class="auth-form__switch-btn">Đăng nhập</a>
+            </div>
+            <div class="auth-form__form">
+              <form action="/registration" method="POST" class="form" id="form-1">
+            
+                <div class="spacer"></div>
+            
+                <div class="form-group">
+                  <label for="fullname" class="form-label">Tên đầy đủ</label>
+                  <input id="fullname1" name="fullname" rules="required" type="text" placeholder="Tên người dùng" class="form-control">
+                  <span class="form-message"></span>
+                </div>
+            
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" name="email" rules="required|email" type="text" placeholder="abc@gmail.com" class="form-control">
+                  <span class="form-message"></span>
+                </div>
+            
+                <div class="form-group">
+                  <label for="password" class="form-label">Mật khẩu</label>
+                  <input id="password1" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                  <span class="form-message"></span>
+                </div>
+            
+                <div class="form-group">
+                  <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                  <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                  <span class="form-message"></span>
+                </div>
+                <div class="auth-form__controls">
+                  <a href="#" class="form-out__click form-out btn">Trở lại</a>
+                  <button class="form-submit">Đăng ký</button>
+                </div>
+              </form>
+            </div>
+            <div class="auth-or">
+              <div class="straight"></div>
+              <div class="or">Hoặc</div>
+              <div class="straight"></div>
+            </div>
+            <div class="auth-form__socials">
+              <a href="/auth/fb" class="auth-form__socials--facebook btn btn--size-s btn--with-icon">
+                <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                <span class="auth-form__socials--title">
+                  Kết nối với Facebook
+                </span>
+              </a>
+              <a href="/auth/google" class="auth-form__socials--google btn btn--size-s btn--with-icon">
+                <i class="auth-form__socials-icon fab fa-google"></i>
+                <span class="auth-form__socials--title">
+                  Kết nối với Google
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <div class="modal2" id="login">
+      <a href="#" class="modal__overlay">
+      </a>
+      <div class="modal__body">
+        <!-- Đăng nhập -->
+        <div class="auth-form">
+          <div class="auth-form__container">
+            <div class="auth-form__header">
+              <h3 class="auth-form__heading">Đăng nhập</h3>
+              <a href="#form__container" class="auth-form__switch-btn">Đăng ký</a>
+            </div>
+            <form action="/login" method="POST" class="form" id="form-2">
+            
+              <div class="spacer"></div>
+          
+              <div class="form-group">
+                <label for="fullname" class="form-label">Tên đầy đủ</label>
+                <input id="fullname2" name="username" rules="required" type="text" placeholder="Tên người dùng/Email" class="form-control">
+                <span class="form-message"></span>
+              </div>
+          
+              <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password2" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
+                
+              </div>
+              
+              <div class="login-error"></div>
+              
+              <div class="auth-form__controls">
+                <a href="#" class="form-out__click form-out btn">Trở lại</a>
+                <button class="form-submit">Đăng nhập</button>
+              </div>
+            </form>
+            <div class="auth-or">
+              <div class="straight"></div>
+              <div class="or">Hoặc</div>
+              <div class="straight"></div>
+            </div>
+            <div class="auth-form__socials">
+              <a href="/auth/fb" class="auth-form__socials--facebook btn btn--size-s btn--with-icon">
+                <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                <span class="auth-form__socials--title">
+                  Kết nối với Facebook
+                </span>
+              </a>
+              <a href="/auth/google" class="auth-form__socials--google btn btn--size-s btn--with-icon">
+                <i class="auth-form__socials-icon fab fa-google"></i>
+                <span class="auth-form__socials--title">
+                  Kết nối với Google
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,42 @@
+        
+
+                <% if(danhsach){ %>
+                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                <ul class="header__cart-list-item">
+              
+                <% danhsach.forEach(function(idseen){ %>
+                <% data.forEach(function(sanphamseen){ %>
+                <% if(sanphamseen._id == idseen){ %>
+                  <li class="header__cart-item">
+                    <img src="<%= sanphamseen.bigImage %>" alt="ảnh" class="header__cart-img">
+                    <div class="header__cart-item-info">
+                      <div class="header__cart-item-head">
+                        <h5 class="header__cart-item-name"><%= sanphamseen.tenSanPham %></h5>
+                        <div class="header__cart-item-price-wrap">
+                          <span class="header__cart-item-price"><%= sanphamseen.priceCurrent %>đ</span>
+                          <span class="header__cart-item-multiply">x</span>
+                          <span class="header__cart-item-quantity">1</span>
+                        </div>
+                      </div>
+
+                      <div class="header__cart-item-body">
+                        <span class="header__cart-item-description">
+                          Thương hiệu: <%= sanphamseen.brand %>
+                        </span>
+                        <span class="header__cart-item-remove"><a href="/thanhtoan/xoa.<%= sanphamseen._id %>">Xóa</a></span>
+                      </div>
+
+                    </div>
+                  </li>
+                  
+                <% } %>
+                <% }); %>
+                <% }); %>
+                <% } %>  
+                
+                <img src="/images/nocart.png" alt="" class="header__cart--no-cart-img">
+                <p class="header__cart-list-no-cart-msg">Chưa có sản phẩm !!</p>
+
+                
+                
+              

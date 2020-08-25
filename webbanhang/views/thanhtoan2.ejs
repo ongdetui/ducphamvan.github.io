@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xác thực</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel="stylesheet" href="/stylesheets/fortawesome/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/grid.css">
+    <link rel="stylesheet" href="/stylesheets/responsive.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <header class="header" style="height: 86px;">
+            <!-- header with search -->
+        <div class="header-with-search">
+          <div class="header__logo hide-on-mobile-tablet">
+            <a href="/">
+              <img src="/images/logo.PNG" alt="ảnh logo" class="header__logo-img">
+            </a>
+          </div>
+          <div class="status">
+              <div class="status-node">
+                  <div class="status-text">Đăng nhập</div>
+                  <div class="status-bar">
+                      <div class="status-fill"></div>
+                  </div>
+                  <div class="status-circle">1</div>
+              </div>
+              <div class="status-node">
+                  <div class="status-text">Địa chỉ giao hàng</div>
+                  <div class="status-bar">
+                      <div class="status-fill status-off"></div>
+                  </div>
+                  <div class="status-circle">2</div>
+              </div>
+              <div class="status-node">
+                <div class="status-text">Thanh toán & Đặt mua</div>
+                <div class="status-circle status-off1">3</div>
+               </div>
+           </div>
+           <div class="hotline">
+            <div class="hotline-call">
+                <i class="hotline-icon fas fa-phone-alt"></i>
+            </div>
+            <div class="hotline-text">0855032080</div>
+           </div>
+          
+        </div>
+        </header>  
+        <div class="app__container">
+            <div class="grid wide">
+                <div class="row no-gutters">
+                    <div class="col l-12 m-12 c-12">
+                        <h3 class="address-title">2. Địa chỉ giao hàng</h3>
+                        <div class="table-address">
+                             <form action="/checkout/diachi" method="POST" class="form form-address" id="form-3">
+                                <div class="form-group">
+                                  <label for="fullname" class="form-label">Họ tên</label>
+                                  <input id="hoten" name="hoten" rules="required|min:6" type="text" placeholder="Nhập họ tên" class="form-control">
+                                  <span class="form-message"></span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="fullname" class="form-label">Điện thoại di động</label>
+                                  <input id="sdt" name="sdt" rules="required|min:10" type="tel" placeholder="Nhập số điện thoại" class="form-control">
+                                  <span class="form-message"></span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="fullname" class="form-label">Tỉnh/Thành phố</label>
+                                  <!-- <input id="fullname2" name="username" rules="required" type="text" placeholder="Tên người dùng/Email" class="form-control"> -->
+                                  <select name="city" id="city" class="form-control">
+                                    <option value="Thanh Hóa" class="form-control">Thanh Hóa</option>
+                                  </select>
+                                  <span class="form-message"></span>
+                                </div>    
+                                <div class="form-group">
+                                  <label for="fullname" class="form-label">Quận/Huyện</label>
+                                  <select name="huyen" id="huyen" class="form-control">
+                                    <option value="Huyện Yên Định" class="form-control">Huyện Yên Định</option>
+                                    <option value="Huyện Thiệu Hóa" class="form-control">Huyện Thiệu Hóa</option>
+                                  </select>
+                                  <span class="form-message"></span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="fullname" class="form-label">Phường/Xã</label>
+                                  <select name="xa" id="yendinh" class="form-control">
+                                    <option value="Thị trấn Quán Lào" class="form-control">Thị trấn Quán Lào</option>
+                                    <option value="Xã Định Bình" class="form-control">Xã Định Bình</option>
+                                    <option value="Xã Định Hải" class="form-control">Xã Định Hải</option>
+                                    <option value="Xã Định Công" class="form-control">Xã Định Công</option>
+                                    <option value="Xã Định Hòa" class="form-control">Xã Định Hòa</option>
+                                    <option value="Xã Định Hưng" class="form-control">Xã Định Hưng</option>
+                                    <option value="Xã Định Liên" class="form-control">Xã Định Liên</option>
+                                    <option value="Xã Định Tân" class="form-control">Xã Định Tân</option>
+                                    <option value="Xã Định Tăng" class="form-control">Xã Định Tăng</option>
+                                    <option value="Xã Định Thành" class="form-control">Xã Định Thành</option>
+                                    <option value="Xã Định Tiến" class="form-control">Xã Định Tiến</option>
+                                    <option value="Xã Định Tường" class="form-control">Xã Định Tường</option>
+                                    <option value="Xã Yên Bái" class="form-control">Xã Yên Bái</option>
+                                    <option value="Xã Yên Giang" class="form-control">Xã Yên Giang</option>
+                                    <option value="Xã Yên Hùng" class="form-control">Xã Yên Hùng</option>
+                                    <option value="Xã Yên Lạc" class="form-control">Xã Yên Lạc</option>
+                                    <option value="Xã Yên Lâm" class="form-control">Xã Yên Lâm</option>
+                                    <option value="Xã Yên Ninh" class="form-control">Xã Yên Ninh</option>
+                                    <option value="Xã Yên Phong" class="form-control">Xã Yên Phong</option>
+                                    <option value="Xã Yên Phú" class="form-control">Xã Yên Phú</option>
+                                    <option value="Xã Yên Tâm" class="form-control">Xã Yên Tâm</option>
+                                    <option value="Xã Yên Thái" class="form-control">Xã Yên Thái</option>
+                                    <option value="Xã Yên Thịnh" class="form-control">Xã Yên Thịnh</option>
+                                    <option value="Xã Yên Thọ" class="form-control">Xã Yên Thọ</option>
+                                    <option value="Xã Yên Trung" class="form-control">Xã Yên Trung</option>
+                                    <option value="Xã Yên Trường" class="form-control">Xã Yên Trường</option>
+                                    <option value="Thị trấn Thống Nhất" class="form-control">Thị trấn Thống Nhất</option>
+                                    <option value="Xã Yên Ninh" class="form-control">Xã Yên Ninh</option>
+                                  </select>
+                                  <select name="xa" id="thieuhoa" class="form-control">
+                                    <option value="Thị trấn Vạn Hà" class="form-control">Thị trấn Vạn Hà</option>
+                                    <option value="Xã Thiệu Châu" class="form-control">Xã Thiệu Châu</option>
+                                    <option value="Xã Thiệu Chính" class="form-control">Xã Thiệu Chính</option>
+                                    <option value="Xã Thiệu Công" class="form-control">Xã Thiệu Công</option>
+                                    <option value="Xã Thiệu Duy" class="form-control">Xã Thiệu Duy</option>
+                                    <option value="Xã Thiệu Đô" class="form-control">Xã Thiệu Đô</option>
+                                    <option value="Xã Thiệu Giang" class="form-control">Xã Thiệu Giang</option>
+                                    <option value="Xã Thiệu Giao" class="form-control">Xã Thiệu Giao</option>
+                                    <option value="Xã Thiệu Hòa" class="form-control">Xã Thiệu Hòa</option>
+                                    <option value="Xã Thiệu Hợp" class="form-control">Xã Thiệu Hợp</option>
+                                    <option value="Xã Thiệu Long" class="form-control">Xã Thiệu Long</option>
+                                    <option value="Xã Thiệu Lý" class="form-control">Xã Thiệu Lý</option>
+                                    <option value="Xã Thiệu Minh" class="form-control">Xã Thiệu Minh</option>
+                                    <option value="Xã Thiệu Ngọc" class="form-control">Xã Thiệu Ngọc</option>
+                                    <option value="Xã Thiệu Nguyên" class="form-control">Xã Thiệu Nguyên</option>
+                                    <option value="Xã Thiệu Phú" class="form-control">Xã Thiệu Phú</option>
+                                    <option value="Xã Thiệu Phúc" class="form-control">Xã Thiệu Phúc</option>
+                                    <option value="Xã Thiệu Quang" class="form-control">Xã Thiệu Quang</option>
+                                    <option value="Xã Thiệu Tâm" class="form-control">Xã Thiệu Tâm</option>
+                                    <option value="Xã Thiệu Tân" class="form-control">Xã Thiệu Tân</option>
+                                    <option value="Xã Thiệu Thành" class="form-control">Xã Thiệu Thành</option>
+                                    <option value="Xã Thiệu Thịnh" class="form-control">Xã Thiệu Thịnh</option>
+                                  </select>
+                                  <span class="form-message"></span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="fullname" class="form-label">Địa chỉ</label>
+                                  <input id="diachi" name="diachi" rules="required" type="text" placeholder="" class="form-control">
+                                  <span class="form-message"></span>
+                                </div>
+                            
+                                
+                            
+                                <div class="auth-form__controls">
+                                  <button style="width: 100%;" class="form-submit checkout">Xác nhận</button>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <% include footer %> 
+    </div>
+    <script src="/javascripts/thanhtoan2.js"></script>
+    <script src="/javascripts/validation.js"></script>
+    <script>
+      Validator('#form-3');
+    </script>
+</body>
+</html>

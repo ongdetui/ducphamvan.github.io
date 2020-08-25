@@ -1,0 +1,9 @@
+.header {
+    height: 100px;
+    background-image: linear-gradient(0, var(--white--color), var(--white--color));
+}
+
+.header__logo-img {
+    width: 200px;
+    height: 80px;
+}
